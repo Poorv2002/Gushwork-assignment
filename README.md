@@ -11,6 +11,7 @@ The page is designed with a modern, dynamic aesthetic that emphasizes user engag
 - **Interactive Hero Carousel & Zoom:** A custom-built image gallery with interactive thumbnails and a dynamic hover-zoom feature to inspect the high-grade materials up close.
 - **Horizontal Swipeable Carousels:** Touch-friendly horizontal snap-scrolling implemented for the Versatile Applications and Portfolio sections to maximize usability on mobile devices.
 - **Interactive Modals:** Custom, lightweight modal popups for "Request a Quote" and "Download Technical Datasheet" actions, ensuring lead generation forms are easily accessible without navigating away from the page.
+- **Sticky Product Banner:** A dynamic, scroll-aware product banner displaying the price range and a "Get Custom Quote" call-to-action that elegantly sticks to the top of the viewport when the main navigation scrolls out of view.
 - **Modern CSS Architecture:** Extensively utilizes CSS Flexbox, Grid, and Custom Properties (Variables) to maintain a highly flexible and consistent design system.
 
 ## Project Structure

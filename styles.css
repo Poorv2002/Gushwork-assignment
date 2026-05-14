@@ -591,25 +591,22 @@ button:hover {
 .table-responsive {
   width: 100%;
   overflow-x: auto;
-  border-radius: var(--radius-lg);
-  margin-top: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-md);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid var(--border-dark);
-  background-color: var(--color-tertiary);
   min-width: 600px;
-   border-radius: var(--radius-sm);
 }
 
 th, td {
-  padding: var(--spacing-md) var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-lg);
   color: rgba(255, 255, 255, 0.9);
-  text-align: left;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   font-size: var(--fs-sm);
+  text-align: left;
 }
 
 tr:last-child td {
@@ -1823,14 +1820,91 @@ section:nth-of-type(3) {
   }
 }
 
+/* Sticky Product Bar */
+.product-sticky-bar {
+  background-color: #f3f4f6;
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 990; /* below header so header can cover it if needed, or above it? It should stick at top. */
+  width: 100%;
+}
+
+.sticky-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sticky-bar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.sticky-bar-img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--border-medium);
+}
+
+.sticky-bar-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-bar-title {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  margin-bottom: 2px;
+}
+
+.sticky-bar-price {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.get-quote-btn {
+  padding: 10px 24px;
+}
+
 /* Screen size below 800px */
-@media (max-width: 799px) {
+@media (max-width: 800px)
+{
   :root {
     --section-py: 80px;
     --section-px: 48px;
     --fs-4xl: 2.5rem;
     --fs-3xl: 2rem;
     --fs-2xl: 1.5rem;
+  }
+
+  /* Sticky Product Bar Overrides */
+  .product-sticky-bar {
+    background-color: var(--bg-white);
+  }
+  
+  .sticky-bar-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sticky-bar-title {
+    font-size: 10px;
+  }
+
+  .sticky-bar-price {
+    font-size: var(--fs-sm);
+  }
+
+  .get-quote-btn {
+    padding: 8px 16px;
+    font-size: var(--fs-xs);
   }
 
   header {
@@ -1858,7 +1932,15 @@ section:nth-of-type(3) {
   .navbar {
     flex-wrap: wrap;
   }
+   .technical-specification {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
 
+  th, td {
+    font-size: 13px;
+    padding: 12px 10px;
+  }
   .industries-top {
     flex-direction: column;
     align-items: flex-start;
@@ -1874,21 +1956,99 @@ section:nth-of-type(3) {
   .process-tabs {
     display: none;
   }
+  .process-card{
+     width: 80%;
+     justify-self: center;
+  }
+  .process-content {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+
+  .process-slider {
+    height: auto;
+    overflow: visible;
+  }
+
+  .process-step-badge {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-medium);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .process-mobile-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    position: relative;
+  }
+
+  .process-control-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--border-light);
+    z-index: 1;
+  }
+
+  .process-control-btn {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-sm);
+    z-index: 2;
+    cursor: pointer;
+    font-weight: var(--fw-medium);
+  }
+
+  #process-img {
+    border-radius: var(--radius-lg);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Newsletter */
+.newsletter-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
 
   .newsletter-form {
     flex-direction: row;
+    max-width: 100%;
     width: 100%;
-    margin-top: var(--spacing-sm);
+    gap: 12px;
   }
 
   .newsletter-form input {
-    width: 80%;
+    flex: 1;
+    min-width: 0;
+    width: auto;
   }
 
   .newsletter-form button {
-    width: 20%;
-    padding: var(--spacing-sm);
+    width: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--fs-sm);
   }
+
 
   .slider-control {
     width: 30px;
@@ -1921,7 +2081,7 @@ section:nth-of-type(3) {
   }
 
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .portfolio-grid {
@@ -1973,7 +2133,11 @@ section:nth-of-type(3) {
   .contact-cta-form-card h3 {
     color: var(--color-white);
   }
-
+  .faq-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
   .btn-dark {
     background-color: var(--bg-white);
     color: var(--color-primary);
@@ -1996,7 +2160,7 @@ section:nth-of-type(3) {
   }
 }
 
-/* Screen size below 480px also for 360px */
+ /* Screen size below 480px also */
 @media (max-width: 480px) {
   :root {
     --section-py: 48px;
@@ -2009,92 +2173,21 @@ section:nth-of-type(3) {
     padding: 0 var(--spacing-sm);
   }
 
-  .process-tabs {
-    display: none;
-  }
-
-  .process-content {
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .process-step-badge {
-    display: inline-block;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-full);
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-medium);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .process-mobile-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: var(--spacing-md);
-    position: relative;
-  }
-
-  .process-control-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: var(--border-light);
-    z-index: 1;
-  }
-
-  .process-control-btn {
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-light);
-    color: var(--text-primary);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-full);
-    font-size: var(--fs-sm);
-    z-index: 2;
-    cursor: pointer;
-    font-weight: var(--fw-medium);
-  }
-
-  #process-img {
-    border-radius: var(--radius-lg);
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
 
   /* Table adjustments for < 360px */
   .technical-specification {
-    max-width: max-content;
-    width: 100%;
     padding: var(--spacing-md);
     background-color: var(--color-tertiary);
   }
 
-  .table-responsive {
-    overflow: hidden;
-  }
- #table-head ,#table-para{
+ #table-head ,#table-para {
     text-align: left;
     margin-left: 0;
     padding-left: 0;
  }
 
- 
   table {
-    min-width: 90%;
-    width: 50%;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin: 0 !important;
   }
 
   th,
@@ -2141,22 +2234,29 @@ section:nth-of-type(3) {
     text-align: left;
   }
 
-  .newsletter-form {
-    display: flex;
+  .faq-list {
+    grid-template-columns: 1fr;
+  }
+
+   .newsletter-card {
     flex-direction: column;
-    gap: 12px;
+  }
+
+  .newsletter-form {
+    flex-direction: row;
+    max-width: 100%;
     width: 100%;
   }
 
-  .newsletter-form input,
-  .newsletter-form button {
-    width: 100%;
+  .newsletter-form input {
+    flex: 1;
+    min-width: 0;
   }
 
   .newsletter-form button {
-    padding: 14px 16px;
-    font-size: 16px;
-    justify-content: center;
+    width: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .industries-slider {
