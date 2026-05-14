@@ -21,7 +21,7 @@ To adhere to the specific submission guidelines, the work is structured as a fla
 ├── index.html       # The main HTML document containing semantic structure
 ├── styles.css       # Consolidated stylesheet containing all global styles, components, and responsive overrides
 ├── script.js        # Vanilla JavaScript handling UI logic, carousels, zoom, and modals
-├── assests/         # Directory containing all optimized images and icons
+├── assets/         # Directory containing all optimized images and icons
 └── README.md        # Project documentation
 
 

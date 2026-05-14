@@ -155,49 +155,49 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "High-Grade Raw Material Selection",
             desc: "Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness and wall thickness uniformity.",
             features: ["PE100 grade material", "Optimal molecular weight distribution"],
-            image: "./assests/img.png"
+            image: "./assets/img.png"
         },
         {
             title: "Advanced Extrusion Process",
             desc: "State of the art extruders carefully melt and shape the raw material ensuring consistent output.",
             features: ["Temperature controlled", "High efficiency output"],
-            image: "./assests/Frame 2147223897.png"
+            image: "./assets/Frame 2147223897.png"
         },
         {
             title: "Precision Cooling",
             desc: "Rapid but controlled cooling solidifies the pipe geometry without inducing stress.",
             features: ["Water bath cooling", "Stress-free solidification"],
-            image: "./assests/Frame 2147223897.png"
+            image: "./assets/Frame 2147223897.png"
         },
         {
             title: "Accurate Sizing",
             desc: "Calibrators maintain the exact outer diameter and roundness of the pipe.",
             features: ["Vacuum calibration", "Continuous monitoring"],
-            image: "./assests/Frame 2147223897.png"
+            image: "./assets/Frame 2147223897.png"
         },
         {
             title: "Rigorous Quality Control",
             desc: "In-line testing verifies wall thickness, diameter, and surface finish.",
             features: ["Ultrasonic thickness testing", "Visual inspection"],
-            image: "./assests/Frame 2147223897.png"
+            image: "./assets/Frame 2147223897.png"
         },
         {
             title: "Automated Marking",
             desc: "Each pipe is laser-marked with specifications, date, and batch number.",
             features: ["Permanent laser marking", "Full traceability"],
-            image: "./assests/Frame 2147223897.png"
+            image: "./assets/Frame 2147223897.png"
         },
         {
             title: "Clean Cutting",
             desc: "Planetary saws cut the pipes to desired lengths cleanly and efficiently.",
             features: ["Dust-free cutting", "Exact length control"],
-            image: "./assests/img.png"
+            image: "./assets/img.png"
         },
         {
             title: "Secure Packaging",
             desc: "Pipes are coiled or bundled securely for safe transport and storage.",
             features: ["UV protected packaging", "Easy handling design"],
-            image: "./assests/img.png"
+            image: "./assets/img.png"
         }
     ];
     let currentProcessIndex = 0;

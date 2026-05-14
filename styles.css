@@ -119,7 +119,7 @@ button {
 body {
   font-family:'Urbanist';
   background-color: var(--bg-main);
-  background-image: url('./assests/bg-img.png'); 
+  background-image: url('./assets/bg-img.png'); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
