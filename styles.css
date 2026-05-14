@@ -160,13 +160,10 @@ ul, ol {
 /* Header & Navbar */
 header {
   background-color: var(--bg-white);
-  padding: var(--spacing-xs) 0;
-  box-shadow: var(--shadow-sm);
-  position: sticky; 
-  top: 0;
   width: 100%;
+  position: relative;
   z-index: 9999;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 main {
@@ -176,29 +173,20 @@ main {
 
 header.is-sticky {
   position: fixed;
-  animation: slideDown 0.3s ease forwards;
-  box-shadow: var(--shadow-md);
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  /* The transform is controlled by Javascript */
 }
 
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
+    display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--section-px, 100px);
+  padding: 16px var(--section-px, 100px);
 }
 
 .navbar .logo {

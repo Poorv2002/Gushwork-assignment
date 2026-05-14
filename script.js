@@ -1,28 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Sticky Header Functionality
-    const header = document.querySelector('header');
-    const firstSection = document.querySelector('main > section:first-of-type');
-    
-    if (header && firstSection) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > firstSection.offsetHeight) {
-                header.classList.add('is-sticky');
-            } else {
-                header.classList.remove('is-sticky');
-            }
-        });
+    const header = document.querySelector("header");
+    const firstSection = document.querySelector("main > section:first-of-type");
+
+    let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  // after first fold
+  if (currentScroll > firstSection.offsetHeight) {
+
+    // Add padding to prevent page jumping when header becomes fixed
+    if (!header.classList.contains("is-sticky")) {
+      document.body.style.paddingTop = header.offsetHeight + 'px';
+      header.classList.add("is-sticky");
     }
 
-    // Navbar toggle functionality
-    const navbarToggle = document.getElementById('navbarToggle');
-    const navbar = document.querySelector('.navbar');
-    
-    if (navbarToggle && navbar) {
-        navbarToggle.addEventListener('click', () => {
-            navbar.classList.toggle('open');
-        });
+    // scrolling UP -> hide navbar
+    if (currentScroll < lastScroll) {
+      header.style.transform = "translateY(-100%)";
     }
 
+    // scrolling DOWN -> show navbar
+    else {
+      header.style.transform = "translateY(0)";
+    }
+
+  } else {
+    // top area (normal state)
+    if (header.classList.contains("is-sticky")) {
+      document.body.style.paddingTop = '0px';
+      header.classList.remove("is-sticky");
+    }
+    header.style.transform = "translateY(0)";
+  }
+
+  lastScroll = currentScroll;
+});
     // Hero Carousel and Zoom functionality
     const mainHeroImage = document.getElementById('mainHeroImage');
     const heroThumbnails = document.querySelectorAll('#heroThumbnails .thumb');
@@ -31,15 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const zoomLens = document.getElementById('zoomLens');
     const zoomResult = document.getElementById('zoomResult');
     const mainImageWrapper = document.querySelector('.main-image-wrapper');
-    
+
     if (mainHeroImage && heroThumbnails.length > 0) {
         let currentHeroIndex = 0;
-        
+
         // Carousel Navigation
         function updateHeroImage(index) {
             currentHeroIndex = index;
             mainHeroImage.src = heroThumbnails[index].src;
-            
+
             heroThumbnails.forEach(t => t.classList.remove('active'));
             heroThumbnails[index].classList.add('active');
         }
@@ -204,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateProcessCard(index) {
         currentProcessIndex = index;
-        
+
         // Update tabs
         processTabs.forEach((tab, i) => {
             if (i === index) {
@@ -216,12 +231,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update content
         const data = processData[index];
-        if(!data) return;
-        
+        if (!data) return;
+
         processTitle.textContent = data.title;
         processDesc.textContent = data.desc;
         processImg.src = data.image;
-        
+
         // Update features
         processFeaturesList.innerHTML = '';
         data.features.forEach(feature => {
@@ -263,12 +278,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (industriesSlider && indPrevBtn && indNextBtn) {
         // Scroll horizontally by roughly one card width (e.g. 300px)
-        const scrollAmount = 320; 
-        
+        const scrollAmount = 320;
+
         indPrevBtn.addEventListener('click', () => {
             industriesSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
-        
+
         indNextBtn.addEventListener('click', () => {
             industriesSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
@@ -287,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalTitle) modalTitle.textContent = title;
         if (modalSubmitBtn) modalSubmitBtn.textContent = submitText;
         if (modal) modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; 
+        document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
